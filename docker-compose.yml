@@ -1,0 +1,8 @@
+version: '3'
+services:
+  web:
+    image: shiv201/static-web:latest
+    container_name: static-web
+    ports:
+      - "8080:80"
+    restart: always
