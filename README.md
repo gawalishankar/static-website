@@ -1,95 +1,133 @@
-Static Website CI/CD Project
-Project Overview
+# Static Website CI/CD Project
 
-This project demonstrates a fully automated CI/CD pipeline for deploying a static website using GitHub, Jenkins, Docker, Docker Compose, and DockerHub.
-The pipeline automatically builds, pushes, and deploys the static website container whenever changes are pushed to GitHub.
+## 📌 Project Overview
 
-🧩 Tech Stack
+This project demonstrates a **fully automated CI/CD pipeline** for deploying a **static website** using **GitHub, Jenkins, Docker, Docker Compose, and DockerHub**. Whenever changes are pushed to GitHub, the Jenkins pipeline automatically builds the Docker image, pushes it to DockerHub, and deploys the updated website using Docker Compose.
 
-Frontend: HTML, CSS, JavaScript (Static website)
+---
 
-CI/CD: Jenkins Declarative Pipeline
+## 🧩 Tech Stack
 
-Containerization: Docker, Docker Compose
+* **Frontend:** HTML, CSS, JavaScript (Static Website)
+* **CI/CD:** Jenkins (Declarative Pipeline)
+* **Containerization:** Docker, Docker Compose
+* **Source Code Management:** GitHub
+* **Container Registry:** DockerHub
+* **Deployment Environment:** Linux / AWS EC2
 
-Repository: GitHub
+---
 
-Container Registry: DockerHub
+## 📁 Project Structure
 
-Deployment Environment: Linux / EC2 instance
-
-📁 Project Structure
+```
 static-website/
 │
-├── index.html       # Main HTML page
-├── style.css        # CSS styles
-├── script.js        # JavaScript for interactivity
-├── Dockerfile       # Dockerfile for building image
-├── docker-compose.yml # Docker Compose file for deployment
-└── Jenkinsfile      # Jenkins Declarative Pipeline
+├── index.html          # Main HTML page
+├── style.css           # CSS styles
+├── script.js           # JavaScript for interactivity
+├── Dockerfile          # Dockerfile to build the image
+├── docker-compose.yml  # Docker Compose file for deployment
+└── Jenkinsfile         # Jenkins Declarative Pipeline
+```
 
-🚀 Features
+---
 
-Simple static website with HTML, CSS, and JS
+## 🚀 Features
 
-Fully automated CI/CD pipeline with Jenkins
+* Simple static website using HTML, CSS, and JavaScript
+* Fully automated CI/CD pipeline using Jenkins
+* Automatic Docker image build and push to DockerHub
+* Automatic deployment using Docker Compose
+* Supports versioned Docker images and rolling updates
 
-Automatic Docker image build and push to DockerHub
+---
 
-Automatic deployment using Docker Compose
+## 🛠️ Prerequisites
 
-Supports versioned images and rolling updates
+* Jenkins installed on a Linux server or EC2 instance
+* Docker and Docker Compose installed
+* DockerHub account (**username:** `shiv201`)
+* GitHub repository:
 
-🛠️ Prerequisites
+  * [https://github.com/gawalishankar/static-website.git](https://github.com/gawalishankar/static-website.git)
 
-Jenkins installed on a Linux server
+---
 
-Docker & Docker Compose installed
+## ⚡ Installation & Deployment
 
-DockerHub account (username: shiv201)
+### 1️⃣ Clone the Repository
 
-GitHub repository: https://github.com/gawalishankar/static-website.git
-
-⚡ Installation & Deployment
-1. Clone the Repository
+```bash
 git clone https://github.com/gawalishankar/static-website.git
 cd static-website
+```
 
-2. Build Docker Image
+---
+
+### 2️⃣ Build Docker Image (Manual Test)
+
+```bash
 docker build -t shiv201/static-web .
+```
 
-3. Run Locally
+---
+
+### 3️⃣ Run Container Locally
+
+```bash
 docker run -d -p 8080:80 shiv201/static-web
+```
 
+Open your browser:
 
-Open your browser: http://localhost:8080
+```
+http://localhost:8080
+```
 
-4. Deploy using Docker Compose
+---
+
+### 4️⃣ Deploy Using Docker Compose
+
+```bash
 docker-compose up -d
+```
 
+Access the website:
 
-Access the website at: http://<EC2-PUBLIC-IP>:8080
+```
+http://<EC2-PUBLIC-IP>:8080
+```
 
-🔗 CI/CD with Jenkins
+---
 
-Create Jenkins Pipeline using Jenkinsfile from the repo
+## 🔗 CI/CD with Jenkins
 
-Add GitHub Webhook to automatically trigger pipeline on code push
+### Jenkins Setup Steps
 
-Pipeline Stages:
+1. Create a **Jenkins Pipeline Job**
+2. Connect it to the GitHub repository
+3. Use the `Jenkinsfile` present in the repository
+4. Configure **DockerHub credentials** in Jenkins
+5. Add a **GitHub Webhook** to trigger the pipeline on every push
 
-Checkout code from GitHub
+---
 
-Build Docker image
+### 🧪 Pipeline Stages
 
-Push image to DockerHub
+* **Checkout** code from GitHub
+* **Build** Docker image
+* **Push** image to DockerHub
+* **Deploy** container using Docker Compose
 
-Deploy container using Docker Compose
+---
 
-✅ Key Outcomes
+## ✅ Key Outcomes
 
-Fully automated CI/CD pipeline for static website
+* End-to-end automated CI/CD pipeline
+* Zero manual deployment effort
+* Fast and reliable static website deployment
+* Industry-standard DevOps workflow using Docker and Jenkins
 
-Fast deployment with Docker and Docker Compose
+---
 
-Continuous integration triggered by GitHub push events
+✨ **Project successfully demonstrates real-world CI/CD automation for static web applications.**
